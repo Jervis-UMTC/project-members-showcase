@@ -1,5 +1,6 @@
 /* Basic Reset */
 * {
+  transition: 0.3s;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,6 +13,7 @@ a {
 }
 
 button {
+  transition: 0.3s;
   cursor: pointer;
 }
 
@@ -47,6 +49,7 @@ body {
   align-items: center;
   color: var(--text-light);
   padding-bottom: 50px;
+  padding-top: 25px;
 }
 
 .container {
@@ -67,8 +70,25 @@ header {
 }
 
 header h1 {
-  font-size: 2.3rem;
-  color: var(--primary-color);
+  font-size: 2.5rem;
+  position: relative;
+  background: var(--primary-gradient);
+  background-clip: text;
+  --webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 20px;
+}
+
+header h1::after {
+  border-radius: var(--border-radius);
+  background: var(--primary-gradient);
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  height: 5px;
+  width: 50%;
 }
 
 header p {
@@ -101,6 +121,10 @@ header p {
   overflow: hidden;
 }
 
+.member:hover {
+  transform: translateY(-10px);
+}
+
 .member .top {
   height: 100px;
   position: relative;
@@ -120,26 +144,25 @@ header p {
 
 .member-details {
   text-align: center;
-  padding-top: 50px;
+  padding-top: 40px;
 }
 
 .member-details h3 {
   font-size: 1.5rem;
-  margin-bottom: 10px;
 }
 
 .member-details p {
   font-size: 1rem;
   font-weight: 500;
   color: var(--primary-color);
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .member-info {
   font-weight: 500;
   border-top: 1px solid var(--border-light);
   padding: 15px 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .member-info p {
@@ -169,7 +192,13 @@ header p {
   font-size: 1.2rem;
 }
 
-.cta-section{
+.social-links a:hover {
+  color: var(--text-dark);
+  background-color: var(--primary-light);
+  transform: scale(1.1);
+}
+
+.cta-section {
   overflow: hidden;
   position: relative;
   border-radius: var(--border-radius);
@@ -184,7 +213,8 @@ header p {
   gap: 30px;
   background-color: var(--bg-overlay);
 }
-.cta-section::after{
+
+.cta-section::after {
   position: absolute;
   top: 0;
   content: "";
@@ -192,18 +222,19 @@ header p {
   height: 5px;
   width: 100%;
 }
-.cta-section h2{
+
+.cta-section h2 {
   font-size: 2rem;
   color: var(--primary-light);
   font-weight: bold;
 }
 
-.cta-section p{
+.cta-section p {
   font-size: 1rem;
   color: var(--text-gray);
 }
 
-.cta-section button{
+.cta-section button {
   box-shadow: 0 8px 15px var(--shadow-color-primary);
   font-weight: bold;
   color: var(--text-dark);
@@ -215,9 +246,41 @@ header p {
   margin-bottom: 20px;
 }
 
-@media (max-width: 789px){
-  .cta-section{
+.cta-section:hover {
+  transform: translateY(-10px);
+}
+
+.cta-section button:hover {
+  box-shadow: 0 12px 19px var(--shadow-color-primary-hover);
+  transform: translateY(-5px);
+}
+
+.cta-section button:focus {
+  outline: 5px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
+@media (max-width: 789px) {
+  .cta-section {
     width: 90%;
     margin-inline: auto;
   }
+
+  .cta-section:hover {
+    transform: translateY(-5px);
+  }
+
+  .member:hover {
+    transform: translateY(-5px);
+  }
+
+  .social-links a:hover {
+    transform: scale(1.05);
+  }
+
+  .cta-section button:hover {
+    box-shadow: 0 12px 19px var(--shadow-color-primary-hover);
+    transform: translateY(-3px);
+  }
+
 }
